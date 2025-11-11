@@ -107,7 +107,7 @@ Replace with your actual GA4 measurement ID.
 
 Update these values in the HTML:
 
-- **Phone:** `(347) 597-0420`
+- **Phone:** `1-800 284 1616`
 - **WhatsApp:** `+13475970420`
 - **Email:** `omapplianceservices@gmail.com`
 - **PocketSuite:** `https://pocketsuite.io/link/om-appliance-services-inc`
@@ -168,7 +168,7 @@ om-appliances-website/
 
 **O&M Appliances Services Inc**
 
-- 📱 Phone: (347) 597-0420
+- 📱 Phone: 1-800 284 1616
 - 💬 WhatsApp: [Chat with us](https://wa.me/13475970420)
 - 📧 Email: omapplianceservices@gmail.com
 - 🗓️ Book: [PocketSuite](https://pocketsuite.io/link/om-appliance-services-inc)
