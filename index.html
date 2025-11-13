@@ -6,13 +6,13 @@
     <meta name="description" content="Same-day appliance repair in Bronx County, Westchester County, and New York City. 10+ years of experience repairing all major brands. Licensed & Insured. Call 1-800 284 1616 for fast service!">
     <meta name="keywords" content="appliance repair Bronx County, appliance repair Westchester County, appliance repair New York NY, same day service, O&M Appliances">
     <meta property="og:title" content="O&M Appliances Services Inc - Appliance Repair in Bronx, Westchester & NYC">
-    <meta property="og:description" content="Same-day repair service in Bronx County, Westchester County, and New York City. Certified technicians, garantía y más de 10 años de experiencia.">
+    <meta property="og:description" content="Same-day repair service in Bronx County, Westchester County, and New York City. Certified technicians with over 10 years of experience and guaranteed repairs.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://omapplianceservices.com">
     <meta property="og:image" content="https://omapplianceservices.com/og-image.jpg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="O&M Appliances Services Inc - Expert Appliance Repair">
-    <meta name="twitter:description" content="Same-day appliance repair in Bronx County, Westchester County y New York City. Técnicos certificados y garantía.">
+    <meta name="twitter:description" content="Same-day appliance repair in Bronx County, Westchester County, and New York City. Certified technicians and guaranteed service.">
     <meta name="twitter:image" content="https://omapplianceservices.com/og-image.jpg">
     <link rel="canonical" href="https://omapplianceservices.com">
     <meta name="robots" content="index, follow">
@@ -114,26 +114,26 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "¿Ofrecen servicio el mismo día?",
+          "name": "Do you offer same-day service?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Sí, atendemos urgencias el mismo día en Bronx County, Westchester County y New York City."
+            "text": "Yes, we provide same-day appliance repair across Bronx County, Westchester County, and all New York City boroughs."
           }
         },
         {
           "@type": "Question",
-          "name": "¿Qué marcas reparan?",
+          "name": "Which appliance brands do you service?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Reparamos todas las marcas principales como Whirlpool, Samsung, LG, GE, Maytag, Bosch, KitchenAid y más."
+            "text": "We repair every major brand, including Whirlpool, Samsung, LG, GE, Maytag, Bosch, KitchenAid, Sub-Zero, Wolf, Thermador, Miele, and more."
           }
         },
         {
           "@type": "Question",
-          "name": "¿Cuáles son los horarios de atención?",
+          "name": "What are your service hours?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Trabajamos de lunes a domingo de 7:00 am a 9:00 pm."
+            "text": "Our certified technicians are available seven days a week from 7:00 AM to 9:00 PM with emergency coverage after hours."
           }
         }
       ]
@@ -324,6 +324,212 @@
             font-size: 0.8rem;
         }
         
+        .hero-ai-container {
+            position: absolute;
+            right: clamp(16px, 4vw, 48px);
+            bottom: clamp(16px, 6vw, 72px);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 16px;
+            z-index: 50;
+        }
+        
+        .ai-launcher {
+            border: none;
+            padding: 0.9rem 1.2rem;
+            border-radius: 999px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-weight: 700;
+            color: #fff;
+            cursor: pointer;
+            background: linear-gradient(135deg, rgba(59,130,246,0.95) 0%, rgba(37,99,235,0.95) 50%, rgba(14,165,233,0.95) 100%);
+            box-shadow: 0 18px 40px rgba(15, 118, 230, 0.35);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .ai-launcher:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 48px rgba(15, 118, 230, 0.45);
+        }
+        
+        .ai-launcher .status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #34D399;
+            box-shadow: 0 0 0 6px rgba(52, 211, 153, 0.18);
+        }
+        
+        .ai-panel {
+            width: min(360px, calc(100vw - 32px));
+            background: rgba(15, 23, 42, 0.92);
+            border: 1px solid rgba(148, 163, 184, 0.25);
+            border-radius: 28px;
+            box-shadow: 0 32px 80px rgba(15, 23, 42, 0.55);
+            backdrop-filter: blur(20px);
+            overflow: hidden;
+            transform-origin: bottom right;
+            transition: transform 0.25s ease, opacity 0.25s ease;
+            opacity: 1;
+        }
+        
+        .ai-panel.hidden {
+            transform: translateY(12px) scale(0.96);
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .ai-panel-header {
+            padding: 1.1rem 1.25rem 0.9rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #fff;
+            background: linear-gradient(135deg, rgba(59,130,246,0.25), rgba(14,165,233,0.18));
+        }
+        
+        .ai-identity {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        
+        .ai-identity .avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 16px;
+            display: grid;
+            place-items: center;
+            font-size: 1.4rem;
+            background: linear-gradient(135deg, rgba(59,130,246,0.9), rgba(14,165,233,0.9));
+            box-shadow: 0 12px 24px rgba(59,130,246,0.35);
+        }
+        
+        .ai-panel-messages .avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 12px;
+            display: grid;
+            place-items: center;
+            font-size: 1.05rem;
+            background: linear-gradient(135deg, rgba(59,130,246,0.85), rgba(14,165,233,0.85));
+            box-shadow: 0 10px 22px rgba(14,165,233,0.35);
+            color: #fff;
+        }
+        
+        .ai-close {
+            background: transparent;
+            border: none;
+            color: rgba(226, 232, 240, 0.8);
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+        
+        .ai-close:hover {
+            color: #fff;
+        }
+        
+        .ai-panel-messages {
+            max-height: 320px;
+            overflow-y: auto;
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.9rem;
+            background: rgba(15, 23, 42, 0.8);
+        }
+        
+        .ai-message {
+            display: flex;
+            gap: 0.75rem;
+            align-items: flex-start;
+        }
+        
+        .ai-message .bubble {
+            padding: 0.9rem 1.1rem;
+            border-radius: 16px;
+            max-width: 100%;
+            line-height: 1.45;
+            box-shadow: 0 12px 28px rgba(15, 118, 230, 0.18);
+        }
+        
+        .ai-message--bot .bubble {
+            background: rgba(59, 130, 246, 0.12);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            color: #E2E8F0;
+        }
+        
+        .ai-message--user {
+            justify-content: flex-end;
+        }
+        
+        .ai-message--user .bubble {
+            background: linear-gradient(135deg, rgba(59,130,246,0.95), rgba(14,165,233,0.95));
+            color: #fff;
+            border-bottom-right-radius: 6px;
+        }
+        
+        .ai-panel-footer {
+            padding: 1.1rem 1.25rem 1.25rem;
+            border-top: 1px solid rgba(148, 163, 184, 0.25);
+            background: rgba(15, 23, 42, 0.9);
+        }
+        
+        .ai-input-group {
+            display: flex;
+            gap: 0.8rem;
+        }
+        
+        .ai-input-group input {
+            flex: 1;
+            border: 1px solid rgba(148, 163, 184, 0.35);
+            border-radius: 999px;
+            padding: 0.85rem 1.2rem;
+            background: rgba(15, 23, 42, 0.6);
+            color: #E2E8F0;
+        }
+        
+        .ai-input-group input::placeholder {
+            color: rgba(148, 163, 184, 0.85);
+        }
+        
+        .ai-input-group button {
+            border: none;
+            border-radius: 999px;
+            padding: 0.85rem 1.35rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, rgba(59,130,246,0.95), rgba(14,165,233,0.95));
+            color: #fff;
+            cursor: pointer;
+            box-shadow: 0 12px 30px rgba(14, 165, 233, 0.4);
+            transition: transform 0.2s ease;
+        }
+        
+        .ai-input-group button:hover {
+            transform: translateY(-1px);
+        }
+        
+        .ai-status {
+            margin-top: 0.8rem;
+            font-size: 0.75rem;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            color: rgba(148, 163, 184, 0.9);
+        }
+        
+        .ai-panel-messages::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        .ai-panel-messages::-webkit-scrollbar-thumb {
+            background: rgba(148, 163, 184, 0.35);
+            border-radius: 999px;
+        }
+        
         .dropdown-wrapper {
             position: relative;
         }
@@ -390,6 +596,15 @@
             .mobile-dropdown.show {
                 display: block;
             }
+            
+            .hero-ai-container {
+                right: 18px;
+                bottom: 18px;
+            }
+            
+            .ai-panel {
+                width: min(320px, calc(100vw - 28px));
+            }
         }
         
         @media (max-width: 1023px) {
@@ -414,6 +629,22 @@
             .hero-cta button,
             .hero-cta a {
                 width: 100%;
+            }
+            
+            .hero-ai-container {
+                right: 14px;
+                bottom: 14px;
+                gap: 12px;
+            }
+            
+            .ai-launcher {
+                padding: 0.75rem 1.05rem;
+                font-size: 0.85rem;
+            }
+            
+            .ai-panel {
+                width: min(100%, calc(100vw - 24px));
+                border-radius: 24px;
             }
         }
         
@@ -607,16 +838,19 @@
             100% { transform: translateX(0); }
         }
         
-        .info-carousel-track {
-            animation: info-carousel-slide 20s infinite;
+        .info-carousel-container {
+            position: relative;
+            overflow: hidden;
         }
         
-        @keyframes info-carousel-slide {
-            0%, 20% { transform: translateX(0); }
-            25%, 45% { transform: translateX(-100%); }
-            50%, 70% { transform: translateX(-200%); }
-            75%, 95% { transform: translateX(-300%); }
-            100% { transform: translateX(0); }
+        .info-carousel-track {
+            display: flex;
+            transition: transform 0.6s ease;
+            will-change: transform;
+        }
+        
+        .info-carousel-slide {
+            flex: 0 0 100%;
         }
         
         .info-carousel-dot {
@@ -824,9 +1058,9 @@
                             About <i class="fas fa-chevron-down text-xs"></i>
                         </button>
                         <div class="dropdown-panel">
-                            <a href="#about" onclick="smoothScroll(event, 'about')">Nuestra historia</a>
-                            <a href="#about" onclick="smoothScroll(event, 'about')">Técnicos certificados</a>
-                            <a href="#testimonials" onclick="smoothScroll(event, 'testimonials')">Opiniones reales</a>
+                            <a href="#about" onclick="smoothScroll(event, 'about')">Our Story</a>
+                            <a href="#about" onclick="smoothScroll(event, 'about')">Certified Technicians</a>
+                            <a href="#testimonials" onclick="smoothScroll(event, 'testimonials')">Customer Reviews</a>
                         </div>
                     </div>
                     <div class="dropdown-wrapper">
@@ -874,9 +1108,9 @@
                         About <i class="fas fa-chevron-down text-sm"></i>
                     </button>
                     <div class="mobile-dropdown" id="mobile-about">
-                        <a href="#about" onclick="smoothScroll(event, 'about'); toggleMenu();">Nuestra historia</a>
-                        <a href="#about" onclick="smoothScroll(event, 'about'); toggleMenu();">Equipo certificado</a>
-                        <a href="#testimonials" onclick="smoothScroll(event, 'testimonials'); toggleMenu();">Opiniones reales</a>
+                        <a href="#about" onclick="smoothScroll(event, 'about'); toggleMenu();">Our Story</a>
+                        <a href="#about" onclick="smoothScroll(event, 'about'); toggleMenu();">Certified Team</a>
+                        <a href="#testimonials" onclick="smoothScroll(event, 'testimonials'); toggleMenu();">Customer Reviews</a>
                     </div>
 
                     <button class="flex items-center justify-between text-gray-700 font-semibold" data-mobile-toggle="coverage">
@@ -974,7 +1208,7 @@
                     </div>
                     <p class="text-center text-sm text-gray-300 font-semibold">
                         <i class="fas fa-language mr-2 text-amber-400"></i>
-                        English & Spanish Spoken • Hablamos Español
+                        Support available in English and Spanish
                     </p>
                 </div>
                 <div class="relative lg:pl-8">
@@ -997,6 +1231,46 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="hero-ai-container" id="hero-ai">
+            <button id="ai-launcher" class="ai-launcher" aria-expanded="false" aria-controls="ai-panel">
+                <span class="status-dot"></span>
+                <i class="fas fa-robot text-lg"></i>
+            </button>
+            <div id="ai-panel" class="ai-panel hidden" role="dialog" aria-label="AI Service Assistant">
+                <div class="ai-panel-header">
+                    <div class="ai-identity">
+                        <div class="avatar">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div>
+                            <div class="font-bold text-sm uppercase tracking-wider text-sky-100">O&M AI Service Guide</div>
+                            <div class="text-xs text-slate-300">Ask about appliances, repairs, and coverage</div>
+                        </div>
+                    </div>
+                    <button class="ai-close" id="ai-close" aria-label="Close AI Assistant">
+                        <i class="fas fa-xmark"></i>
+                    </button>
+                </div>
+                <div class="ai-panel-messages" id="ai-messages">
+                    <div class="ai-message ai-message--bot">
+                        <div class="avatar text-sm"><i class="fas fa-robot"></i></div>
+                        <div class="bubble">
+                            Hi! I’m the O&M AI assistant. Ask me about appliance issues, maintenance tips, pricing, or coverage in Bronx County, Westchester County, and NYC.
+                        </div>
+                    </div>
+                </div>
+                <div class="ai-panel-footer">
+                    <form id="ai-form" class="ai-input-group">
+                        <input id="ai-question" type="text" required placeholder="Ask about your appliance..." autocomplete="off">
+                        <button id="ai-submit" type="submit">
+                            Ask
+                        </button>
+                    </form>
+                    <div id="ai-status" class="ai-status">Loading AI model...</div>
                 </div>
             </div>
         </div>
@@ -1100,10 +1374,10 @@
                     <span class="text-blue-600 font-bold text-sm uppercase tracking-wider px-4 py-2 bg-blue-50 rounded-full">Service Coverage Area</span>
                 </div>
                 <h2 class="text-4xl lg:text-5xl font-black text-gray-900 mb-4">
-                    Servicio local en Bronx, Westchester y New York City
+                    Local service for Bronx, Westchester, and New York City
                 </h2>
                 <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Técnicos certificados listos para atender Bronx County, Westchester County y los cinco boroughs de New York City con respuesta el mismo día.
+                    Certified technicians ready to cover Bronx County, Westchester County, and every New York City borough with same-day response times.
                 </p>
             </div>
 
@@ -1118,7 +1392,7 @@
                         </div>
                     </div>
                     <div class="p-6">
-                        <p class="text-gray-600 mb-4 font-medium">Manhattan, Brooklyn, Queens, Staten Island y Bronx con atención el mismo día.</p>
+                        <p class="text-gray-600 mb-4 font-medium">Manhattan, Brooklyn, Queens, Staten Island, and the Bronx with same-day availability.</p>
                         <a href="tel:+18002841616" class="text-blue-600 font-bold hover:text-amber-600 flex items-center group">
                             Get Service <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
                         </a>
@@ -1135,7 +1409,7 @@
                         </div>
                     </div>
                     <div class="p-6">
-                        <p class="text-gray-600 mb-4 font-medium">Servicio especializado para todo el Bronx y sus vecindarios.</p>
+                        <p class="text-gray-600 mb-4 font-medium">Specialized coverage for every neighborhood within Bronx County.</p>
                         <a href="tel:+18002841616" class="text-blue-600 font-bold hover:text-amber-600 flex items-center group">
                             Get Service <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
                         </a>
@@ -1152,7 +1426,7 @@
                         </div>
                     </div>
                     <div class="p-6">
-                        <p class="text-gray-600 mb-4 font-medium">Disponibilidad en Yonkers, New Rochelle, White Plains y más localidades del condado.</p>
+                        <p class="text-gray-600 mb-4 font-medium">Rapid response across Yonkers, New Rochelle, White Plains, and the rest of Westchester County.</p>
                         <a href="tel:+18002841616" class="text-blue-600 font-bold hover:text-amber-600 flex items-center group">
                             Get Service <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
                         </a>
@@ -1163,10 +1437,10 @@
             <div class="mt-12 text-center bg-gradient-to-r from-blue-50 to-amber-50 rounded-3xl p-10 border-2 border-blue-100">
                 <h3 class="text-2xl font-black text-gray-900 mb-4">
                     <i class="fas fa-map-marked-alt text-blue-600 mr-3"></i>
-                    Cobertura enfocada para ofrecerte tiempos de respuesta rápidos
+                    Focused coverage for the fastest response
                 </h3>
                 <p class="text-lg text-gray-700 max-w-4xl mx-auto">
-                    Atendemos exclusivamente Bronx County, Westchester County y New York City para garantizarte reparaciones rápidas, confiables y con garantía.
+                    We exclusively serve Bronx County, Westchester County, and New York City to guarantee fast dispatching, reliable repairs, and backed warranties.
                 </p>
             </div>
         </div>
@@ -1265,26 +1539,6 @@
                         Book Now <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
                     </a>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="ai-assistant" class="py-20 bg-gradient-to-r from-gray-50 to-blue-50">
-        <div class="max-w-4xl mx-auto px-4 text-center">
-            <span class="text-blue-600 font-bold uppercase tracking-wider">AI Service Assistant</span>
-            <h2 class="text-4xl lg:text-5xl font-black text-gray-900 mt-4 mb-6">Obtén respuestas al instante</h2>
-            <p class="text-lg text-gray-600 mb-10">
-                Pregunta sobre reparaciones, cobertura y disponibilidad. El asistente corre 100% en tu navegador, sin compartir datos.
-            </p>
-            <div class="bg-white rounded-3xl shadow-xl border-2 border-blue-100 p-8">
-                <div id="ai-output" class="text-left text-gray-700 min-h-[120px] border border-gray-200 rounded-2xl p-6 mb-6 bg-gray-50">
-                    <p class="text-sm text-gray-500">Haz una pregunta para comenzar.</p>
-                </div>
-                <form id="ai-form" class="flex flex-col sm:flex-row gap-4">
-                    <input id="ai-question" type="text" required placeholder="¿Qué electrodoméstico necesitas reparar?" class="flex-1 px-5 py-4 border-2 border-gray-200 rounded-full focus:outline-none focus:border-blue-500">
-                    <button id="ai-submit" type="submit" class="btn-primary px-8 py-4 rounded-full font-bold text-white">Preguntar</button>
-                </form>
-                <p id="ai-status" class="text-sm text-gray-500 mt-4">Modelo cargándose...</p>
             </div>
         </div>
     </section>
@@ -2011,48 +2265,119 @@
                 });
             });
 
+            const aiLauncher = document.getElementById('ai-launcher');
+            const aiPanel = document.getElementById('ai-panel');
+            const aiClose = document.getElementById('ai-close');
             const aiForm = document.getElementById('ai-form');
             const aiStatus = document.getElementById('ai-status');
-            const aiOutput = document.getElementById('ai-output');
+            const aiMessages = document.getElementById('ai-messages');
             const aiQuestion = document.getElementById('ai-question');
+            
+            const setAiPanelState = (open) => {
+                if (!aiPanel || !aiLauncher) return;
+                aiPanel.classList.toggle('hidden', !open);
+                aiLauncher.setAttribute('aria-expanded', open.toString());
+                if (open && aiQuestion) {
+                    aiQuestion.focus({ preventScroll: true });
+                }
+                if (open && aiStatus) {
+                    loadAssistant(aiStatus);
+                }
+            };
 
-            if (aiForm && aiStatus && aiOutput && aiQuestion) {
-                loadAssistant(aiStatus);
+            const appendMessage = (role, text) => {
+                if (!aiMessages) return;
+                const message = document.createElement('div');
+                message.className = `ai-message ${role === 'bot' ? 'ai-message--bot' : 'ai-message--user'}`;
 
+                if (role === 'bot') {
+                    const avatar = document.createElement('div');
+                    avatar.className = 'avatar text-sm';
+                    avatar.innerHTML = '<i class="fas fa-robot"></i>';
+                    message.appendChild(avatar);
+                }
+
+                const bubble = document.createElement('div');
+                bubble.className = 'bubble';
+                bubble.textContent = text;
+                message.appendChild(bubble);
+                aiMessages.appendChild(message);
+                aiMessages.scrollTop = aiMessages.scrollHeight;
+            };
+
+            if (aiLauncher) {
+                aiLauncher.addEventListener('click', (event) => {
+                    event.stopPropagation();
+                    const isHidden = aiPanel?.classList.contains('hidden');
+                    setAiPanelState(!!isHidden);
+                });
+            }
+
+            if (aiClose) {
+                aiClose.addEventListener('click', (event) => {
+                    event.stopPropagation();
+                    setAiPanelState(false);
+                });
+            }
+
+            document.addEventListener('click', (event) => {
+                if (!aiPanel || !aiLauncher) return;
+                if (!aiPanel.contains(event.target) && !aiLauncher.contains(event.target)) {
+                    setAiPanelState(false);
+                }
+            });
+
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape') {
+                    setAiPanelState(false);
+                }
+            });
+
+            if (aiForm && aiStatus && aiQuestion && aiMessages) {
                 aiForm.addEventListener('submit', async (event) => {
                     event.preventDefault();
+                    const question = aiQuestion.value.trim();
+                    if (!question) return;
+
+                    appendMessage('user', question);
+                    aiQuestion.value = '';
+                    aiStatus.textContent = 'Thinking...';
 
                     if (!qaPipeline) {
-                        aiStatus.textContent = 'Cargando modelo...';
                         await loadAssistant(aiStatus);
                         if (!qaPipeline) {
-                            aiStatus.textContent = 'IA no disponible. Intenta más tarde.';
+                            aiStatus.textContent = 'AI is temporarily unavailable. Please call 1-800 284 1616.';
+                            appendMessage('bot', 'I am having trouble reaching our knowledge base right now. Please call 1-800 284 1616 and we will help you immediately.');
                             return;
                         }
                     }
 
-                    aiStatus.textContent = 'Pensando...';
-                    aiOutput.innerHTML = '';
-
                     try {
                         const result = await qaPipeline({
-                            question: aiQuestion.value,
+                            question,
                             context: aiContext
                         });
-                        aiOutput.innerHTML = `<strong>Respuesta:</strong> ${result.answer}`;
-                        aiStatus.textContent = `Confianza: ${(result.score * 100).toFixed(1)}%`;
+                        const confidence = (result.score * 100).toFixed(1);
+                        appendMessage('bot', result.answer);
+                        aiStatus.textContent = `Confidence ${confidence}%`;
                     } catch (error) {
                         console.error('AI answer error', error);
-                        aiOutput.innerHTML = '<strong>Error:</strong> No se pudo generar la respuesta.';
-                        aiStatus.textContent = 'Intenta nuevamente.';
+                        appendMessage('bot', 'I ran into a problem generating an answer. Please try again or call 1-800 284 1616 for immediate help.');
+                        aiStatus.textContent = 'Unable to answer. Please try again.';
                     }
-
-                    aiQuestion.value = '';
                 });
             }
         });
 
-        const aiContext = `O&M Appliances Services Inc ofrece reparación el mismo día para refrigeradores, lavadoras, secadoras, lavavajillas, estufas y hornos. Cobertura exclusiva: Bronx County, Westchester County y New York City. Técnicos certificados, garantía en piezas y mano de obra. Horario: lunes a domingo de 7am a 9pm. Teléfono: 1-800 284 1616.`;
+        const aiContext = `
+O&M Appliances Services Inc delivers same-day repair and installation for refrigerators, freezers, ice makers, wine coolers, washers, dryers, dishwashers, ranges, cooktops, ovens, microwaves, and HVAC-style packaged units.
+Service coverage: Bronx County, Westchester County (Yonkers, New Rochelle, White Plains, Scarsdale, Mount Vernon), and all New York City boroughs (Manhattan, Brooklyn, Queens, Staten Island, Bronx).
+Technicians: factory-trained, EPA certified, fully insured with more than 10 years of combined experience. We service luxury brands like Sub-Zero, Wolf, Thermador, Viking, Miele, Monogram, Fisher & Paykel, as well as mainstream brands such as Whirlpool, Samsung, LG, GE, Maytag, Frigidaire, Bosch, KitchenAid, Electrolux, and Kenmore.
+Guarantee: 90-day warranty on parts, 30-day warranty on labor, OEM replacement parts only, transparent pricing with diagnosis credited toward repair.
+Availability: 7 days a week from 7:00 AM to 9:00 PM with emergency and after-hours support. Same-day appointments available when booked before 2 PM.
+Contact: Phone 1-800-284-1616, WhatsApp +1-347-597-0420, email omapplianceservicesinc@gmail.com, online booking via PocketSuite.
+Additional services: preventative maintenance plans, vent and duct cleaning, gas leak diagnostics, appliance installations (built-in refrigerators, wall ovens, ranges, cooktops), smart appliance setup, landlord and property management service agreements.
+`;
         let qaPipeline;
 
         async function loadAssistant(statusElement) {
@@ -2060,7 +2385,7 @@
 
             try {
                 if (!window.Transformers || !window.Transformers.pipeline) {
-                    statusElement.textContent = 'No se pudo cargar la IA. Revisa tu conexión.';
+                    statusElement.textContent = 'Unable to load AI model. Check your connection.';
                     return;
                 }
 
@@ -2071,10 +2396,10 @@
                     );
                 }
 
-                statusElement.textContent = 'Modelo listo 🤖';
+                statusElement.textContent = 'AI assistant ready 🤖';
             } catch (error) {
                 console.error('AI load error', error);
-                statusElement.textContent = 'No se pudo cargar la IA (mira la consola).';
+                statusElement.textContent = 'AI could not be initialized. See console for details.';
             }
         }
 
@@ -2174,7 +2499,7 @@
             
             // Disable button and show spinner
             submitBtn.disabled = true;
-            btnText.textContent = 'Enviando...';
+            btnText.textContent = 'Sending...';
             btnSpinner.style.display = 'inline-block';
             
             const formData = {
@@ -2321,55 +2646,59 @@
             }
         });
         
-        // Info Carousel Dot Navigation
-        function updateCarouselDots() {
-            const dots = document.querySelectorAll('.info-carousel-dot');
-            const currentTime = Date.now() % 20000; // 20 second cycle
-            
-            dots.forEach((dot, index) => {
-                dot.classList.remove('active');
-                
-                // Calculate which slide should be active based on time
-                let activeSlide = 0;
-                if (currentTime >= 5000 && currentTime < 10000) activeSlide = 1;
-                else if (currentTime >= 10000 && currentTime < 15000) activeSlide = 2;
-                else if (currentTime >= 15000 && currentTime < 20000) activeSlide = 3;
-                
-                if (index === activeSlide) {
-                    dot.classList.add('active');
+        const carouselTrack = document.querySelector('.info-carousel-track');
+        const carouselSlides = document.querySelectorAll('.info-carousel-slide');
+        const carouselDots = document.querySelectorAll('.info-carousel-dot');
+        let carouselIndex = 0;
+        let carouselTimer = null;
+
+        function goToCarouselSlide(index) {
+            if (!carouselTrack || carouselSlides.length === 0) return;
+            carouselIndex = (index + carouselSlides.length) % carouselSlides.length;
+            carouselTrack.style.transform = `translateX(-${carouselIndex * 100}%)`;
+            carouselDots.forEach((dot, dotIndex) => {
+                dot.classList.toggle('active', dotIndex === carouselIndex);
+            });
+        }
+
+        function startCarouselAutoPlay() {
+            stopCarouselAutoPlay();
+            carouselTimer = setInterval(() => {
+                goToCarouselSlide(carouselIndex + 1);
+            }, 6000);
+        }
+
+        function stopCarouselAutoPlay() {
+            if (carouselTimer) {
+                clearInterval(carouselTimer);
+                carouselTimer = null;
+            }
+        }
+
+        if (carouselTrack && carouselSlides.length > 0) {
+            startCarouselAutoPlay();
+
+            const carouselContainer = document.querySelector('.info-carousel-container');
+            if (carouselContainer) {
+                carouselContainer.addEventListener('mouseenter', stopCarouselAutoPlay);
+                carouselContainer.addEventListener('mouseleave', startCarouselAutoPlay);
+            }
+
+            carouselDots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    goToCarouselSlide(index);
+                    startCarouselAutoPlay();
+                });
+            });
+
+            window.addEventListener('visibilitychange', () => {
+                if (document.hidden) {
+                    stopCarouselAutoPlay();
+                } else {
+                    startCarouselAutoPlay();
                 }
             });
         }
-        
-        // Update dots every 100ms for smooth animation
-        setInterval(updateCarouselDots, 100);
-        
-        // Add click functionality to dots with error handling
-        document.addEventListener('DOMContentLoaded', function() {
-            const dots = document.querySelectorAll('.info-carousel-dot');
-            dots.forEach((dot, index) => {
-                dot.addEventListener('click', () => {
-                    try {
-                        const track = document.querySelector('.info-carousel-track');
-                        if (track) {
-                            track.style.animation = 'none';
-                            track.style.transform = `translateX(-${index * 100}%)`;
-                            
-                            // Update active dot
-                            document.querySelectorAll('.info-carousel-dot').forEach(d => d.classList.remove('active'));
-                            dot.classList.add('active');
-                            
-                            // Restart animation after a short delay
-                            setTimeout(() => {
-                                track.style.animation = 'info-carousel-slide 20s infinite';
-                            }, 100);
-                        }
-                    } catch (error) {
-                        console.error('Carousel dot click error:', error);
-                    }
-                });
-            });
-        });
     </script>
 </body>
 </html>
