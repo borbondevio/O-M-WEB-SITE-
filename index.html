@@ -705,6 +705,39 @@
             }
         }
         
+        /* Mobile Optimizations */
+        @media (max-width: 768px) {
+            .hero-simple {
+                min-height: auto;
+                padding: 2rem 0;
+            }
+            
+            .service-area-card {
+                margin-bottom: 1.5rem;
+            }
+            
+            .service-card {
+                margin-bottom: 1.5rem;
+            }
+            
+            .ai-panel {
+                width: calc(100vw - 2rem);
+                max-width: 90vw;
+                height: 400px;
+            }
+            
+            .hero-ai-container {
+                top: 10px;
+                right: 10px;
+            }
+            
+            .ai-launcher {
+                width: 48px;
+                height: 48px;
+                font-size: 20px;
+            }
+        }
+        
         @media (max-width: 640px) {
             .hero-headline {
                 font-size: 2.5rem;
@@ -1294,47 +1327,48 @@
             <div class="absolute inset-0 bg-gradient-to-br from-blue-900/50 via-gray-900/60 to-blue-900/50"></div>
         </div>
         
-        <div class="max-w-7xl mx-auto relative z-10 py-20 px-4">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="max-w-7xl mx-auto relative z-10 py-12 lg:py-16 px-4">
+            <div class="grid lg:grid-cols-2 gap-8 lg:gap-10 items-center">
                 <div class="animate-fade-in-up">
                     <!-- Trust Badge -->
-                    <div class="inline-flex items-center bg-gradient-to-r from-amber-500 to-amber-600 px-6 py-3 rounded-full mb-8 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
-                        <i class="fas fa-award text-white mr-3 text-xl animate-spin-slow"></i>
-                        <span class="text-sm font-bold text-white">10+ Years of Excellence • #1 Choice in NY Metro</span>
-                        <i class="fas fa-check-circle text-white ml-3"></i>
+                    <div class="inline-flex items-center bg-gradient-to-r from-amber-500 to-amber-600 px-4 py-2 lg:px-6 lg:py-3 rounded-full mb-6 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
+                        <i class="fas fa-award text-white mr-2 lg:mr-3 text-lg lg:text-xl animate-spin-slow"></i>
+                        <span class="text-xs lg:text-sm font-bold text-white">10+ Years of Excellence • #1 Choice in NY Metro</span>
+                        <i class="fas fa-check-circle text-white ml-2 lg:ml-3"></i>
                     </div>
                     
                     <!-- Main Headline -->
-                    <h1 class="text-5xl lg:text-7xl font-black mb-6 leading-tight text-white hero-headline">
+                    <h1 class="text-4xl lg:text-6xl font-black mb-4 lg:mb-6 leading-tight text-white hero-headline">
                         <span class="bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent animate-shimmer">
                         Expert Appliance Repair
                         </span>
                     </h1>
                     
                     <!-- Subheadline -->
-                    <p class="text-xl text-gray-200 mb-8 leading-relaxed hero-subtext font-medium">
+                    <p class="text-lg lg:text-xl text-gray-200 mb-6 lg:mb-8 leading-relaxed hero-subtext font-medium">
                         Certified technicians ready to repair your emergency <strong class="text-amber-400">the same day</strong>. Serving Bronx, Westchester, and NYC with guaranteed repairs, transparent pricing, and <strong class="text-blue-300">10+ years</strong> of unparalleled experience.
                     </p>
                     
                     <!-- Features Card -->
-                    <div class="bg-gradient-to-br from-white/15 to-white/5 backdrop-blur-md rounded-2xl p-6 mb-10 border-2 border-white/30 shadow-2xl hover:border-amber-400/50 transition-all duration-300">
+                    <div class="bg-gradient-to-br from-white/15 to-white/5 backdrop-blur-md rounded-2xl p-5 lg:p-6 mb-8 lg:mb-10 border-2 border-white/30 shadow-2xl hover:border-amber-400/50 transition-all duration-300">
                         <div class="flex items-center justify-between mb-4">
                             <div class="flex items-center space-x-3">
-                                <div class="bg-gradient-to-br from-amber-400/30 to-amber-500/30 p-4 rounded-xl shadow-lg border border-amber-400/30">
-                                    <svg class="w-8 h-8 text-amber-400" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M12 2L3 7v5c0 4.55 2.84 8.74 7 9.64 4.16-.9 7-5.09 7-9.64V7l-9-5zm-1 14.5l-4-4 1.41-1.41L11 14.67l5.59-5.58L18 10.5l-7 6z"/>
+                                <div class="bg-gradient-to-br from-emerald-500/40 to-green-500/40 p-3 lg:p-4 rounded-2xl shadow-xl border-2 border-emerald-400/50 relative overflow-hidden">
+                                    <div class="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent"></div>
+                                    <svg class="w-7 h-7 lg:w-8 lg:h-8 text-white relative z-10" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 11.74 5.16-1 9-6.19 9-11.74V5l-9-4zm-1 15.5l-5-5 1.41-1.41L11 15.67l7.59-7.58L20 9.5l-8 8z"/>
                                     </svg>
                                 </div>
                                 <div>
-                                    <div class="text-2xl font-black text-white flex items-center gap-2">
+                                    <div class="text-xl lg:text-2xl font-black text-white flex items-center gap-2">
                                         Licensed & Insured
-                                        <i class="fas fa-check-circle text-green-400 text-lg"></i>
+                                        <i class="fas fa-check-circle text-emerald-400 text-base lg:text-lg"></i>
                                     </div>
-                                    <div class="text-sm text-gray-300">EPA Certified Technicians</div>
+                                    <div class="text-xs lg:text-sm text-gray-300">EPA Certified Technicians</div>
                                 </div>
                             </div>
-                            <div class="bg-gradient-to-br from-blue-500/20 to-blue-600/20 p-3 rounded-xl border border-blue-400/30">
-                                <i class="fas fa-certificate text-blue-400 text-3xl"></i>
+                            <div class="bg-gradient-to-br from-blue-500/30 to-blue-600/30 p-2 lg:p-3 rounded-xl border-2 border-blue-400/40 shadow-lg">
+                                <i class="fas fa-certificate text-blue-300 text-2xl lg:text-3xl"></i>
                             </div>
                         </div>
                         <div class="border-t border-white/20 pt-4">
@@ -1352,22 +1386,15 @@
                     </div>
                     
                     <!-- CTA Buttons -->
-                    <div class="flex flex-col sm:flex-row gap-4 mb-12 hero-cta">
-                        <a href="https://pocketsuite.io/link/om-appliance-services-inc" target="_blank" onclick="trackEvent('book_now_clicked', {source: 'hero'})" class="btn-primary text-white px-10 py-5 rounded-full font-black text-lg flex items-center justify-center group w-full sm:w-auto shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 transform hover:scale-105">
-                            <i class="fas fa-calendar-check mr-3"></i>
+                    <div class="flex flex-col sm:flex-row gap-3 lg:gap-4 mb-8 lg:mb-12 hero-cta">
+                        <a href="https://pocketsuite.io/link/om-appliance-services-inc" target="_blank" onclick="trackEvent('book_now_clicked', {source: 'hero'})" class="btn-primary text-white px-8 lg:px-10 py-4 lg:py-5 rounded-full font-black text-base lg:text-lg flex items-center justify-center group w-full sm:w-auto shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 transform hover:scale-105">
+                            <i class="fas fa-calendar-check mr-2 lg:mr-3"></i>
                             Book Now
-                            <i class="fas fa-arrow-right ml-3 group-hover:translate-x-1 transition-transform"></i>
+                            <i class="fas fa-arrow-right ml-2 lg:ml-3 group-hover:translate-x-1 transition-transform"></i>
                         </a>
                         <a href="tel:+18002841616" onclick="trackPhoneClick('hero')" class="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-5 rounded-full font-black text-lg hover:from-blue-700 hover:to-blue-800 transition-all flex items-center justify-center border-2 border-blue-500/50 w-full sm:w-auto shadow-2xl hover:shadow-blue-500/50 transform hover:scale-105">
-                            <div class="flex flex-col items-center justify-center">
-                                <div class="flex items-center">
-                                    <i class="fas fa-phone-alt text-2xl mr-3"></i>
-                                    <div class="text-left">
-                                        <div class="text-xs font-semibold text-blue-100 uppercase tracking-wide mb-0.5">Call Now</div>
-                                        <div class="text-xl font-black leading-tight">1-800-284-1616</div>
-                                    </div>
-                                </div>
-                            </div>
+                            <i class="fas fa-phone-alt text-xl lg:text-2xl mr-3"></i>
+                            <span>Call Now</span>
                         </a>
                         <a href="https://wa.me/13475970420?text=Hi%2C%20I%20need%20appliance%20repair" target="_blank" onclick="trackWhatsAppClick('hero')" class="glass-effect text-white px-10 py-5 rounded-full font-black text-lg hover:bg-green-500 transition-all flex items-center justify-center border-2 border-white/30 w-full sm:w-auto shadow-xl hover:shadow-green-500/30 transform hover:scale-105">
                             <i class="fab fa-whatsapp mr-3 text-xl"></i>
@@ -1376,17 +1403,17 @@
                     </div>
                     
                     <!-- Stats Grid -->
-                    <div class="grid grid-cols-3 gap-6 mb-8">
-                        <div class="text-center bg-white/10 backdrop-blur-sm rounded-2xl p-4 border border-white/20 hover:bg-white/15 transition-all duration-300 transform hover:scale-105">
-                            <div class="text-4xl lg:text-5xl font-black icon-gradient mb-2">10+</div>
+                    <div class="grid grid-cols-3 gap-3 lg:gap-6 mb-6 lg:mb-8">
+                        <div class="text-center bg-white/10 backdrop-blur-sm rounded-xl lg:rounded-2xl p-3 lg:p-4 border border-white/20 hover:bg-white/15 transition-all duration-300 transform hover:scale-105">
+                            <div class="text-3xl lg:text-4xl xl:text-5xl font-black icon-gradient mb-1 lg:mb-2">10+</div>
                             <div class="text-xs text-gray-300 font-semibold uppercase tracking-wider">Years Experience</div>
                         </div>
-                        <div class="text-center bg-white/10 backdrop-blur-sm rounded-2xl p-4 border border-white/20 hover:bg-white/15 transition-all duration-300 transform hover:scale-105">
-                            <div class="text-4xl lg:text-5xl font-black icon-gradient mb-2">5000+</div>
+                        <div class="text-center bg-white/10 backdrop-blur-sm rounded-xl lg:rounded-2xl p-3 lg:p-4 border border-white/20 hover:bg-white/15 transition-all duration-300 transform hover:scale-105">
+                            <div class="text-3xl lg:text-4xl xl:text-5xl font-black icon-gradient mb-1 lg:mb-2">5000+</div>
                             <div class="text-xs text-gray-300 font-semibold uppercase tracking-wider">Happy Clients</div>
                         </div>
-                        <div class="text-center bg-white/10 backdrop-blur-sm rounded-2xl p-4 border border-white/20 hover:bg-white/15 transition-all duration-300 transform hover:scale-105">
-                            <div class="text-4xl lg:text-5xl font-black icon-gradient mb-2">100%</div>
+                        <div class="text-center bg-white/10 backdrop-blur-sm rounded-xl lg:rounded-2xl p-3 lg:p-4 border border-white/20 hover:bg-white/15 transition-all duration-300 transform hover:scale-105">
+                            <div class="text-3xl lg:text-4xl xl:text-5xl font-black icon-gradient mb-1 lg:mb-2">100%</div>
                             <div class="text-xs text-gray-300 font-semibold uppercase tracking-wider">Guaranteed</div>
                         </div>
                     </div>
@@ -1398,26 +1425,26 @@
                 </div>
                 
                 <!-- Right Side - Visual Elements -->
-                <div class="relative lg:pl-8">
+                <div class="relative lg:pl-8 mt-8 lg:mt-0">
                     <div class="relative">
                         <!-- Main Service Icon Card -->
-                        <div class="glass-effect rounded-3xl p-12 relative transform hover:scale-105 transition-all duration-500">
-                            <div class="bg-gradient-to-br from-[#3B82F6] via-[#2563EB] to-[#1E40AF] rounded-2xl p-16 text-center relative overflow-hidden hero-card-animated shadow-2xl">
+                        <div class="glass-effect rounded-2xl lg:rounded-3xl p-8 lg:p-12 relative transform hover:scale-105 transition-all duration-500">
+                            <div class="bg-gradient-to-br from-[#3B82F6] via-[#2563EB] to-[#1E40AF] rounded-xl lg:rounded-2xl p-10 lg:p-16 text-center relative overflow-hidden hero-card-animated shadow-2xl">
                                 <div class="absolute inset-0 bg-gradient-to-tr from-white/20 via-transparent to-transparent"></div>
-                                <div class="absolute top-0 right-0 w-64 h-64 bg-amber-400/20 rounded-full blur-3xl"></div>
-                            <i class="fas fa-tools text-white text-9xl mb-6 relative z-10 drop-shadow-2xl hero-icon-animated"></i>
-                            <p class="text-white text-2xl font-bold relative z-10">Professional Service</p>
-                                <p class="text-blue-100 text-sm mt-2 relative z-10">Factory-Trained Technicians</p>
+                                <div class="absolute top-0 right-0 w-48 lg:w-64 h-48 lg:h-64 bg-amber-400/20 rounded-full blur-3xl"></div>
+                            <i class="fas fa-tools text-white text-6xl lg:text-9xl mb-4 lg:mb-6 relative z-10 drop-shadow-2xl hero-icon-animated"></i>
+                            <p class="text-white text-xl lg:text-2xl font-bold relative z-10">Professional Service</p>
+                                <p class="text-blue-100 text-xs lg:text-sm mt-2 relative z-10">Factory-Trained Technicians</p>
                         </div>
                             
                             <!-- Same-Day Service Badge -->
-                            <div class="absolute -bottom-8 -left-8 bg-gradient-to-br from-white to-gray-50 p-6 rounded-3xl shadow-2xl border-4 border-amber-400 animate-bounce-slow hover:border-green-500 transition-all duration-300 transform hover:scale-110" style="max-width: 280px; z-index: 20;">
-                            <div class="flex items-center space-x-3">
-                                    <div class="bg-gradient-to-br from-green-400 to-emerald-500 p-4 rounded-xl shadow-lg">
-                                    <i class="fas fa-bolt text-white text-3xl"></i>
+                            <div class="absolute -bottom-4 -left-4 lg:-bottom-8 lg:-left-8 bg-gradient-to-br from-white to-gray-50 p-4 lg:p-6 rounded-2xl lg:rounded-3xl shadow-2xl border-4 border-amber-400 animate-bounce-slow hover:border-green-500 transition-all duration-300 transform hover:scale-110" style="max-width: 240px; z-index: 20;">
+                            <div class="flex items-center space-x-2 lg:space-x-3">
+                                    <div class="bg-gradient-to-br from-green-400 to-emerald-500 p-3 lg:p-4 rounded-xl shadow-lg">
+                                    <i class="fas fa-bolt text-white text-2xl lg:text-3xl"></i>
                                 </div>
                                 <div>
-                                    <div class="font-black text-gray-900 text-base">Same-Day Service</div>
+                                    <div class="font-black text-gray-900 text-sm lg:text-base">Same-Day Service</div>
                                     <div class="text-xs text-gray-600 font-semibold">7 Days a Week</div>
                                         <div class="text-xs text-amber-600 font-bold mt-1">Available Now!</div>
                                 </div>
@@ -1425,9 +1452,9 @@
                         </div>
                             
                             <!-- Warranty Badge -->
-                            <div class="absolute -top-6 -right-6 bg-gradient-to-br from-blue-500 to-blue-600 p-4 rounded-2xl shadow-xl border-2 border-white/30 transform hover:rotate-6 transition-all duration-300" style="z-index: 20;">
+                            <div class="absolute -top-4 -right-4 lg:-top-6 lg:-right-6 bg-gradient-to-br from-blue-500 to-blue-600 p-3 lg:p-4 rounded-xl lg:rounded-2xl shadow-xl border-2 border-white/30 transform hover:rotate-6 transition-all duration-300" style="z-index: 20;">
                                 <div class="flex flex-col items-center">
-                                    <i class="fas fa-shield-alt text-white text-2xl mb-2"></i>
+                                    <i class="fas fa-shield-alt text-white text-xl lg:text-2xl mb-1 lg:mb-2"></i>
                                     <div class="text-white text-xs font-bold text-center">90-Day<br/>Warranty</div>
                     </div>
                             </div>
@@ -1587,10 +1614,10 @@
                 <!-- New York City -->
                 <div class="service-area-card bg-white rounded-2xl overflow-hidden shadow-xl border-2 border-gray-100 hover:shadow-2xl transition-all duration-500 scroll-reveal" style="animation-delay: 0.1s;">
                     <div class="h-48 bg-gradient-to-br from-blue-600 to-blue-800 relative overflow-hidden">
-                        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1534447677768-be436bb09401?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); opacity: 0.3;"></div>
-                        <div class="absolute inset-0 bg-gradient-to-br from-blue-600/85 to-blue-800/85"></div>
+                        <div class="absolute inset-0 bg-cover bg-center bg-fixed" style="background-image: url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');"></div>
+                        <div class="absolute inset-0 bg-gradient-to-br from-blue-600/75 to-blue-800/75"></div>
                         <div class="absolute inset-0 flex items-center justify-center">
-                            <h3 class="text-3xl font-black text-white z-10 drop-shadow-lg text-center px-4">New York City</h3>
+                            <h3 class="text-3xl font-black text-white z-10 drop-shadow-2xl text-center px-4">New York City</h3>
                         </div>
                     </div>
                     <div class="p-6">
@@ -1604,10 +1631,10 @@
                 <!-- Bronx County -->
                 <div class="service-area-card bg-white rounded-2xl overflow-hidden shadow-xl border-2 border-gray-100 hover:shadow-2xl transition-all duration-500 scroll-reveal" style="animation-delay: 0.3s;">
                     <div class="h-48 bg-gradient-to-br from-purple-500 to-purple-700 relative overflow-hidden">
-                        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1526401426408-5c39d1f4f596?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); opacity: 0.3;"></div>
-                        <div class="absolute inset-0 bg-gradient-to-br from-purple-500/85 to-purple-700/85"></div>
+                        <div class="absolute inset-0 bg-cover bg-center bg-fixed" style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');"></div>
+                        <div class="absolute inset-0 bg-gradient-to-br from-purple-500/75 to-purple-700/75"></div>
                         <div class="absolute inset-0 flex items-center justify-center">
-                            <h3 class="text-3xl font-black text-white z-10 drop-shadow-lg">Bronx County</h3>
+                            <h3 class="text-3xl font-black text-white z-10 drop-shadow-2xl">Bronx County</h3>
                         </div>
                     </div>
                     <div class="p-6">
@@ -1621,10 +1648,10 @@
                 <!-- Westchester County -->
                 <div class="service-area-card bg-white rounded-2xl overflow-hidden shadow-xl border-2 border-gray-100 hover:shadow-2xl transition-all duration-500 scroll-reveal" style="animation-delay: 0.5s;">
                     <div class="h-48 bg-gradient-to-br from-cyan-500 to-cyan-700 relative overflow-hidden">
-                        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1528744598421-b7b93e12df13?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); opacity: 0.3;"></div>
-                        <div class="absolute inset-0 bg-gradient-to-br from-cyan-500/85 to-cyan-700/85"></div>
+                        <div class="absolute inset-0 bg-cover bg-center bg-fixed" style="background-image: url('https://images.unsplash.com/photo-1514565131-fce0801e5785?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');"></div>
+                        <div class="absolute inset-0 bg-gradient-to-br from-cyan-500/75 to-cyan-700/75"></div>
                         <div class="absolute inset-0 flex items-center justify-center">
-                            <h3 class="text-3xl font-black text-white z-10 text-center drop-shadow-lg">Westchester County</h3>
+                            <h3 class="text-3xl font-black text-white z-10 text-center drop-shadow-2xl">Westchester County</h3>
                         </div>
                     </div>
                     <div class="p-6">
