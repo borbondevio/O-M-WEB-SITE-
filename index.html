@@ -117,7 +117,7 @@
           "name": "Do you offer same-day service?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes, we provide same-day appliance repair across Bronx County, Westchester County, and all New York City boroughs."
+            "text": "Yes, we provide same-day appliance repair across Bronx County, Westchester County, and select New York City boroughs (Brooklyn, Queens, Staten Island)."
           }
         },
         {
@@ -763,6 +763,10 @@
             transform: translateY(0);
         }
         
+        .animate-in {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
         .auto-modal {
             position: fixed;
             bottom: 20px;
@@ -902,11 +906,61 @@
             overflow: hidden;
             white-space: nowrap;
             position: relative;
+            padding: 40px 0;
+            background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 50px, rgba(255,255,255,0) calc(100% - 50px), rgba(255,255,255,1) 100%);
         }
         
         .scroll-content {
             display: inline-flex;
-            gap: 2rem;
+            gap: 2.5rem;
+            align-items: center;
+        }
+        
+        .brand-card {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            padding: 24px 32px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.05);
+            min-width: 240px;
+            border: 2px solid rgba(226,232,240,0.8);
+            transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .brand-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(59,130,246,0.1), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .brand-card:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 12px 40px rgba(59,130,246,0.15), 0 4px 12px rgba(0,0,0,0.1);
+            border-color: rgba(59,130,246,0.3);
+        }
+        
+        .brand-card:hover::before {
+            left: 100%;
+        }
+        
+        .brand-name {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #1e293b 0%, #475569 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
         }
 
         input:focus, select:focus, textarea:focus {
@@ -1259,7 +1313,7 @@
                     <div class="ai-message ai-message--bot">
                         <div class="avatar text-sm"><i class="fas fa-robot"></i></div>
                         <div class="bubble">
-                            Hi! I’m the O&M AI assistant. Ask me about appliance issues, maintenance tips, pricing, or coverage in Bronx County, Westchester County, and NYC.
+                            Hi! I'm the O&M AI assistant. Ask me about appliance issues, maintenance tips, pricing, or coverage in Bronx County, Westchester County, and NYC boroughs (Brooklyn, Queens, Staten Island).
                         </div>
                     </div>
                 </div>
@@ -1377,7 +1431,7 @@
                     Local service for Bronx, Westchester, and New York City
                 </h2>
                 <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Certified technicians ready to cover Bronx County, Westchester County, and every New York City borough with same-day response times.
+                    Certified technicians ready to cover Bronx County, Westchester County, and select New York City boroughs (Brooklyn, Queens, Staten Island) with same-day response times.
                 </p>
             </div>
 
@@ -1392,7 +1446,7 @@
                         </div>
                     </div>
                     <div class="p-6">
-                        <p class="text-gray-600 mb-4 font-medium">Manhattan, Brooklyn, Queens, Staten Island, and the Bronx with same-day availability.</p>
+                        <p class="text-gray-600 mb-4 font-medium">Brooklyn, Queens, and Staten Island with same-day availability.</p>
                         <a href="tel:+18002841616" class="text-blue-600 font-bold hover:text-amber-600 flex items-center group">
                             Get Service <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
                         </a>
@@ -1440,7 +1494,7 @@
                     Focused coverage for the fastest response
                 </h3>
                 <p class="text-lg text-gray-700 max-w-4xl mx-auto">
-                    We exclusively serve Bronx County, Westchester County, and New York City to guarantee fast dispatching, reliable repairs, and backed warranties.
+                    We exclusively serve Bronx County, Westchester County, and select New York City boroughs (Brooklyn, Queens, Staten Island) to guarantee fast dispatching, reliable repairs, and backed warranties.
                 </p>
             </div>
         </div>
@@ -1592,54 +1646,54 @@
         </div>
         <div class="scroll-container">
             <div class="scroll-content animate-scroll">
-                <div class="inline-flex items-center justify-center bg-white px-10 py-8 rounded-2xl shadow-lg min-w-[220px] border-2 border-gray-100">
-                    <span class="text-2xl font-black text-gray-800">Whirlpool</span>
+                <div class="brand-card">
+                    <span class="brand-name">Whirlpool</span>
                 </div>
-                <div class="inline-flex items-center justify-center bg-white px-10 py-8 rounded-2xl shadow-lg min-w-[220px] border-2 border-gray-100">
-                    <span class="text-2xl font-black text-gray-800">Samsung</span>
+                <div class="brand-card">
+                    <span class="brand-name">Samsung</span>
                 </div>
-                <div class="inline-flex items-center justify-center bg-white px-10 py-8 rounded-2xl shadow-lg min-w-[220px] border-2 border-gray-100">
-                    <span class="text-2xl font-black text-gray-800">LG</span>
+                <div class="brand-card">
+                    <span class="brand-name">LG</span>
                 </div>
-                <div class="inline-flex items-center justify-center bg-white px-10 py-8 rounded-2xl shadow-lg min-w-[220px] border-2 border-gray-100">
-                    <span class="text-2xl font-black text-gray-800">GE</span>
+                <div class="brand-card">
+                    <span class="brand-name">GE</span>
                 </div>
-            <div class="inline-flex items-center justify-center bg-white px-10 py-8 rounded-2xl shadow-lg min-w-[220px] border-2 border-gray-100">
-                    <span class="text-2xl font-black text-gray-800">Maytag</span>
+                <div class="brand-card">
+                    <span class="brand-name">Maytag</span>
                 </div>
-            <div class="inline-flex items-center justify-center bg-white px-10 py-8 rounded-2xl shadow-lg min-w-[220px] border-2 border-gray-100">
-                    <span class="text-2xl font-black text-gray-800">Frigidaire</span>
+                <div class="brand-card">
+                    <span class="brand-name">Frigidaire</span>
                 </div>
-            <div class="inline-flex items-center justify-center bg-white px-10 py-8 rounded-2xl shadow-lg min-w-[220px] border-2 border-gray-100">
-                    <span class="text-2xl font-black text-gray-800">KitchenAid</span>
+                <div class="brand-card">
+                    <span class="brand-name">KitchenAid</span>
                 </div>
-            <div class="inline-flex items-center justify-center bg-white px-10 py-8 rounded-2xl shadow-lg min-w-[220px] border-2 border-gray-100">
-                    <span class="text-2xl font-black text-gray-800">Bosch</span>
+                <div class="brand-card">
+                    <span class="brand-name">Bosch</span>
                 </div>
-            <div class="inline-flex items-center justify-center bg-white px-10 py-8 rounded-2xl shadow-lg min-w-[220px] border-2 border-gray-100">
-                    <span class="text-2xl font-black text-gray-800">Electrolux</span>
+                <div class="brand-card">
+                    <span class="brand-name">Electrolux</span>
                 </div>
-            <div class="inline-flex items-center justify-center bg-white px-10 py-8 rounded-2xl shadow-lg min-w-[220px] border-2 border-gray-100">
-                    <span class="text-2xl font-black text-gray-800">Kenmore</span>
+                <div class="brand-card">
+                    <span class="brand-name">Kenmore</span>
                 </div>
-            <div class="inline-flex items-center justify-center bg-white px-10 py-8 rounded-2xl shadow-lg min-w-[220px] border-2 border-gray-100">
-                    <span class="text-2xl font-black text-gray-800">Amana</span>
+                <div class="brand-card">
+                    <span class="brand-name">Amana</span>
                 </div>
-            <div class="inline-flex items-center justify-center bg-white px-10 py-8 rounded-2xl shadow-lg min-w-[220px] border-2 border-gray-100">
-                    <span class="text-2xl font-black text-gray-800">Hotpoint</span>
+                <div class="brand-card">
+                    <span class="brand-name">Hotpoint</span>
                 </div>
-                <!-- Duplicar para loop infinito -->
-                <div class="inline-flex items-center justify-center bg-white px-10 py-8 rounded-2xl shadow-lg min-w-[220px] border-2 border-gray-100">
-                    <span class="text-2xl font-black text-gray-800">Whirlpool</span>
+                <!-- Duplicate for infinite loop -->
+                <div class="brand-card">
+                    <span class="brand-name">Whirlpool</span>
                 </div>
-                <div class="inline-flex items-center justify-center bg-white px-10 py-8 rounded-2xl shadow-lg min-w-[220px] border-2 border-gray-100">
-                    <span class="text-2xl font-black text-gray-800">Samsung</span>
+                <div class="brand-card">
+                    <span class="brand-name">Samsung</span>
                 </div>
-                <div class="inline-flex items-center justify-center bg-white px-10 py-8 rounded-2xl shadow-lg min-w-[220px] border-2 border-gray-100">
-                    <span class="text-2xl font-black text-gray-800">LG</span>
+                <div class="brand-card">
+                    <span class="brand-name">LG</span>
                 </div>
-                <div class="inline-flex items-center justify-center bg-white px-10 py-8 rounded-2xl shadow-lg min-w-[220px] border-2 border-gray-100">
-                    <span class="text-2xl font-black text-gray-800">GE</span>
+                <div class="brand-card">
+                    <span class="brand-name">GE</span>
                 </div>
             </div>
         </div>
@@ -1864,7 +1918,7 @@
                     </button>
                     <div class="faq-answer px-8 pb-6">
                         <p class="text-gray-600 font-medium leading-relaxed">
-                            We cover Westchester County, Bronx County, and all New York City boroughs. If you're not sure if we reach your area, call us at 1-800 284 1616 and we'll gladly confirm.
+                            We cover Westchester County, Bronx County, and select New York City boroughs (Brooklyn, Queens, Staten Island). If you're not sure if we reach your area, call us at 1-800 284 1616 and we'll gladly confirm.
                         </p>
                     </div>
                 </div>
@@ -1951,7 +2005,7 @@
                 <div>
                     <h4 class="font-black text-lg mb-6 text-[#3B82F6]">Service Areas</h4>
                     <ul class="space-y-3 text-gray-400 font-medium">
-                        <li>✓ New York City (todos los boroughs)</li>
+                        <li>✓ New York City (Brooklyn, Queens, Staten Island)</li>
                         <li>✓ Bronx County</li>
                         <li>✓ Westchester County</li>
                     </ul>
@@ -2371,7 +2425,7 @@
 
         const aiContext = `
 O&M Appliances Services Inc delivers same-day repair and installation for refrigerators, freezers, ice makers, wine coolers, washers, dryers, dishwashers, ranges, cooktops, ovens, microwaves, and HVAC-style packaged units.
-Service coverage: Bronx County, Westchester County (Yonkers, New Rochelle, White Plains, Scarsdale, Mount Vernon), and all New York City boroughs (Manhattan, Brooklyn, Queens, Staten Island, Bronx).
+Service coverage: Bronx County, Westchester County (Yonkers, New Rochelle, White Plains, Scarsdale, Mount Vernon), and select New York City boroughs (Brooklyn, Queens, Staten Island).
 Technicians: factory-trained, EPA certified, fully insured with more than 10 years of combined experience. We service luxury brands like Sub-Zero, Wolf, Thermador, Viking, Miele, Monogram, Fisher & Paykel, as well as mainstream brands such as Whirlpool, Samsung, LG, GE, Maytag, Frigidaire, Bosch, KitchenAid, Electrolux, and Kenmore.
 Guarantee: 90-day warranty on parts, 30-day warranty on labor, OEM replacement parts only, transparent pricing with diagnosis credited toward repair.
 Availability: 7 days a week from 7:00 AM to 9:00 PM with emergency and after-hours support. Same-day appointments available when booked before 2 PM.
@@ -2699,6 +2753,185 @@ Additional services: preventative maintenance plans, vent and duct cleaning, gas
                 }
             });
         }
+
+        // Modern Technological Features
+        
+        // 1. Intersection Observer for Enhanced Scroll Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.service-card, .service-area-card, .scroll-reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // 2. Performance Monitoring
+        if ('PerformanceObserver' in window) {
+            const perfObserver = new PerformanceObserver((list) => {
+                for (const entry of list.getEntries()) {
+                    if (entry.entryType === 'navigation') {
+                        const loadTime = entry.loadEventEnd - entry.fetchStart;
+                        console.log('Page Load Time:', loadTime + 'ms');
+                    }
+                }
+            });
+            try {
+                perfObserver.observe({ entryTypes: ['navigation', 'resource'] });
+            } catch (e) {
+                console.log('Performance observer not supported');
+            }
+        }
+
+        // 3. Enhanced Lazy Loading with Intersection Observer
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        if (img.dataset.src) {
+                            img.src = img.dataset.src;
+                            img.removeAttribute('data-src');
+                            imageObserver.unobserve(img);
+                        }
+                    }
+                });
+            });
+
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+
+        // 4. Modern Scroll Behavior with Smooth Polyfill
+        if (!CSS.supports('scroll-behavior', 'smooth')) {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href !== '#' && href !== '') {
+                        const target = document.querySelector(href);
+                        if (target) {
+                            e.preventDefault();
+                            target.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }
+                    }
+                });
+            });
+        }
+
+        // 5. Service Worker Registration for PWA Support
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js').catch(() => {
+                    // Service worker registration failed, continue normally
+                });
+            });
+        }
+
+        // 6. Network Status Monitoring
+        if ('connection' in navigator) {
+            const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+            if (connection) {
+                const updateConnectionStatus = () => {
+                    const effectiveType = connection.effectiveType;
+                    if (effectiveType === 'slow-2g' || effectiveType === '2g') {
+                        // Reduce animations for slow connections
+                        document.body.classList.add('reduced-motion');
+                    }
+                };
+                connection.addEventListener('change', updateConnectionStatus);
+                updateConnectionStatus();
+            }
+        }
+
+        // 7. Preload Critical Resources
+        const criticalResources = [
+            'https://cdn.tailwindcss.com',
+            'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css'
+        ];
+
+        criticalResources.forEach(resource => {
+            const link = document.createElement('link');
+            link.rel = 'preload';
+            link.as = resource.includes('.css') ? 'style' : 'script';
+            link.href = resource;
+            document.head.appendChild(link);
+        });
+
+        // 8. Enhanced Form Validation with Modern APIs
+        const forms = document.querySelectorAll('form');
+        forms.forEach(form => {
+            form.addEventListener('submit', (e) => {
+                if (!form.checkValidity()) {
+                    e.preventDefault();
+                    const firstInvalid = form.querySelector(':invalid');
+                    if (firstInvalid) {
+                        firstInvalid.focus();
+                        firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                }
+            }, false);
+        });
+
+        // 9. Reduced Motion Support
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            document.body.classList.add('reduced-motion');
+            const style = document.createElement('style');
+            style.textContent = `
+                .reduced-motion *,
+                .reduced-motion *::before,
+                .reduced-motion *::after {
+                    animation-duration: 0.01ms !important;
+                    animation-iteration-count: 1 !important;
+                    transition-duration: 0.01ms !important;
+                }
+            `;
+            document.head.appendChild(style);
+        }
+
+        // 10. Viewport Height Fix for Mobile
+        const setVH = () => {
+            const vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        };
+        setVH();
+        window.addEventListener('resize', setVH);
+        window.addEventListener('orientationchange', setVH);
+
+        // 11. Modern Touch Gestures
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        document.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+            if (Math.abs(diff) > swipeThreshold) {
+                // Swipe detected - can be used for carousel navigation
+            }
+        }
+
+        console.log('🚀 O&M Appliances - Modern features loaded');
     </script>
 </body>
 </html>
