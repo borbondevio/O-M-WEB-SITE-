@@ -524,19 +524,38 @@
             background-repeat: no-repeat;
             z-index: 0;
             pointer-events: none;
-            transition: opacity 1s ease-in-out;
-            filter: blur(8px) brightness(0.9);
+            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), background-image 0.6s ease-in-out;
+            filter: blur(12px) brightness(0.85) saturate(1.1);
+            will-change: opacity, background-image;
+            backface-visibility: hidden;
+            transform: translateZ(0);
         }
         
         .service-bg-overlay.active {
-            opacity: 0.2;
+            opacity: 0.15;
             z-index: 0;
+        }
+        
+        /* Disable overlay on mobile for better performance */
+        @media (max-width: 768px) {
+            .service-bg-overlay {
+                display: none;
+            }
+        }
+        
+        /* Respect reduced motion preference */
+        @media (prefers-reduced-motion: reduce) {
+            .service-bg-overlay {
+                transition: none;
+                filter: blur(0);
+            }
         }
         
         #services {
             position: relative;
             z-index: 1;
-            background: rgba(249, 250, 251, 0.85);
+            background: rgba(249, 250, 251, 0.95);
+            isolation: isolate;
             backdrop-filter: blur(2px);
         }
         
@@ -2975,53 +2994,159 @@
                 header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.05)';
             }
         });
-        // Service Background Images on Scroll/Hover
+        // Service Background Images - Optimized for Scroll and Hover
         const serviceCards = document.querySelectorAll('.service-card[data-service-bg]');
         const serviceBgOverlay = document.querySelector('.service-bg-overlay');
         
         if (serviceCards.length > 0 && serviceBgOverlay) {
-            let bgTimeout;
+            // Check if user prefers reduced motion
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const isMobile = window.innerWidth <= 768;
             
-            const updateServiceBackground = (bgUrl) => {
-                if (bgUrl) {
-                    serviceBgOverlay.style.backgroundImage = `url('${bgUrl}')`;
-                    serviceBgOverlay.classList.add('active');
-                } else {
-                    serviceBgOverlay.classList.remove('active');
+            // Disable on mobile or if user prefers reduced motion
+            if (isMobile || prefersReducedMotion) {
+                serviceBgOverlay.style.display = 'none';
+            } else {
+                let bgTimeout;
+                let currentBgUrl = null;
+                let isHovering = false;
+                let scrollUpdatePending = false;
+                
+                // Throttle function for scroll events
+                function throttle(func, wait) {
+                    let timeout;
+                    return function executedFunction(...args) {
+                        const later = () => {
+                            clearTimeout(timeout);
+                            func(...args);
+                        };
+                        clearTimeout(timeout);
+                        timeout = setTimeout(later, wait);
+                    };
                 }
-            };
-            
-            serviceCards.forEach(card => {
-                const bgUrl = card.getAttribute('data-service-bg');
                 
-                card.addEventListener('mouseenter', () => {
-                    clearTimeout(bgTimeout);
-                    updateServiceBackground(bgUrl);
-                });
+                // Debounce function for hover events
+                function debounce(func, wait) {
+                    let timeout;
+                    return function executedFunction(...args) {
+                        const later = () => {
+                            clearTimeout(timeout);
+                            func(...args);
+                        };
+                        clearTimeout(timeout);
+                        timeout = setTimeout(later, wait);
+                    };
+                }
                 
-                card.addEventListener('mouseleave', () => {
-                    bgTimeout = setTimeout(() => {
-                        updateServiceBackground(null);
-                    }, 500);
-                });
-            });
-            
-            // Intersection Observer for scroll-based backgrounds
-            const servicesObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting && entry.intersectionRatio > 0.3) {
-                        const bgUrl = entry.target.getAttribute('data-service-bg');
-                        updateServiceBackground(bgUrl);
+                const updateServiceBackground = (bgUrl, source = 'scroll') => {
+                    // Don't update if hovering (hover takes priority)
+                    if (source === 'scroll' && isHovering) {
+                        return;
                     }
+                    
+                    // Only update if URL changed
+                    if (bgUrl === currentBgUrl) {
+                        return;
+                    }
+                    
+                    currentBgUrl = bgUrl;
+                    
+                    if (bgUrl) {
+                        // Preload image for smoother transition
+                        const img = new Image();
+                        img.onload = () => {
+                            serviceBgOverlay.style.backgroundImage = `url('${bgUrl}')`;
+                            serviceBgOverlay.classList.add('active');
+                        };
+                        img.src = bgUrl;
+                    } else {
+                        serviceBgOverlay.classList.remove('active');
+                        currentBgUrl = null;
+                    }
+                };
+                
+                // Hover events with debouncing
+                serviceCards.forEach(card => {
+                    const bgUrl = card.getAttribute('data-service-bg');
+                    
+                    card.addEventListener('mouseenter', () => {
+                        isHovering = true;
+                        clearTimeout(bgTimeout);
+                        updateServiceBackground(bgUrl, 'hover');
+                    });
+                    
+                    card.addEventListener('mouseleave', () => {
+                        isHovering = false;
+                        // Clear timeout and reset after a delay
+                        clearTimeout(bgTimeout);
+                        bgTimeout = setTimeout(() => {
+                            // Only clear if not hovering another card
+                            if (!isHovering) {
+                                updateServiceBackground(null, 'hover');
+                            }
+                        }, 300);
+                    });
                 });
-            }, {
-                threshold: 0.3,
-                rootMargin: '-20% 0px -20% 0px'
-            });
-            
-            serviceCards.forEach(card => {
-                servicesObserver.observe(card);
-            });
+                
+                // Intersection Observer for scroll-based backgrounds (optimized)
+                let activeCard = null;
+                const servicesObserver = new IntersectionObserver((entries) => {
+                    // Find the most visible card
+                    let mostVisible = null;
+                    let maxRatio = 0;
+                    
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting && entry.intersectionRatio > maxRatio) {
+                            maxRatio = entry.intersectionRatio;
+                            mostVisible = entry.target;
+                        }
+                    });
+                    
+                    // Only update if we have a visible card and it's different
+                    if (mostVisible && mostVisible !== activeCard && maxRatio > 0.25) {
+                        activeCard = mostVisible;
+                        const bgUrl = mostVisible.getAttribute('data-service-bg');
+                        if (!isHovering) {
+                            updateServiceBackground(bgUrl, 'scroll');
+                        }
+                    } else if (!mostVisible && activeCard) {
+                        // No card is visible, but don't clear immediately
+                        activeCard = null;
+                    }
+                }, {
+                    threshold: [0.1, 0.25, 0.5, 0.75],
+                    rootMargin: '-15% 0px -15% 0px'
+                });
+                
+                // Observe all service cards
+                serviceCards.forEach(card => {
+                    servicesObserver.observe(card);
+                });
+                
+                // Cleanup on scroll end for better performance
+                let scrollTimeout;
+                const handleScrollEnd = throttle(() => {
+                    clearTimeout(scrollTimeout);
+                    scrollTimeout = setTimeout(() => {
+                        // Optional: can add cleanup logic here
+                    }, 150);
+                }, 100);
+                
+                window.addEventListener('scroll', handleScrollEnd, { passive: true });
+                
+                // Handle window resize
+                let resizeTimeout;
+                window.addEventListener('resize', () => {
+                    clearTimeout(resizeTimeout);
+                    resizeTimeout = setTimeout(() => {
+                        if (window.innerWidth <= 768) {
+                            serviceBgOverlay.style.display = 'none';
+                        } else {
+                            serviceBgOverlay.style.display = '';
+                        }
+                    }, 250);
+                }, { passive: true });
+            }
         }
         
         // Scroll reveal animation
