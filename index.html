@@ -512,51 +512,27 @@
             z-index: 10;
         }
         
-        .service-bg-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
-            z-index: 0;
-            pointer-events: none;
-            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), background-image 0.6s ease-in-out;
-            filter: blur(12px) brightness(0.85) saturate(1.1);
-            will-change: opacity, background-image;
-            backface-visibility: hidden;
-            transform: translateZ(0);
-        }
-        
-        .service-bg-overlay.active {
-            opacity: 0.15;
-            z-index: 0;
-        }
-        
-        /* Disable overlay on mobile for better performance */
-        @media (max-width: 768px) {
-            .service-bg-overlay {
-                display: none;
-            }
-        }
-        
-        /* Respect reduced motion preference */
-        @media (prefers-reduced-motion: reduce) {
-            .service-bg-overlay {
-                transition: none;
-                filter: blur(0);
-            }
-        }
-        
+        /* Service Section - Modern, Clean & Professional */
         #services {
             position: relative;
             z-index: 1;
-            background: rgba(249, 250, 251, 0.95);
+            background: linear-gradient(to bottom, #f8fafc 0%, #ffffff 50%, #f8fafc 100%);
             isolation: isolate;
-            backdrop-filter: blur(2px);
+            overflow: hidden;
+        }
+        
+        #services::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(245, 158, 11, 0.03) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
         }
         
         #services > div {
@@ -1780,10 +1756,9 @@
         </div>
     </section>
 
-    <!-- Services Section - Inspired by Range Appliance Repair -->
-    <section id="services" class="py-24 bg-gray-50 relative">
-        <div class="service-bg-overlay fixed inset-0 opacity-0 transition-opacity duration-1000 pointer-events-none"></div>
-        <div class="max-w-7xl mx-auto px-4">
+    <!-- Services Section - Modern, Professional & Trustworthy -->
+    <section id="services" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
             <div class="text-center mb-20 scroll-reveal">
                 <h2 class="text-4xl lg:text-5xl font-black text-gray-900 mb-6">Professional Appliance Repair Services</h2>
                 <p class="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -1792,102 +1767,156 @@
             </div>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Service 1 - Refrigerators -->
-                <div class="service-card bg-white rounded-3xl p-10 shadow-lg border-2 border-gray-100 hover:border-emerald-400 transition-all duration-300 relative overflow-hidden" data-service-bg="https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80">
-                    <div class="absolute inset-0 bg-cover bg-center opacity-5 hover:opacity-10 transition-opacity duration-500" style="background-image: url('https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); filter: blur(40px);"></div>
+                <div class="service-card bg-white rounded-3xl p-10 shadow-xl border-2 border-gray-100 hover:border-emerald-400 hover:shadow-2xl transition-all duration-500 relative overflow-hidden group">
+                    <div class="absolute inset-0 bg-gradient-to-br from-emerald-50/50 via-transparent to-green-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-100/20 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     <div class="relative z-10">
-                        <div class="bg-gradient-to-br from-emerald-50 to-green-50 w-24 h-24 rounded-3xl flex items-center justify-center mb-8 shadow-lg">
-                            <i class="fas fa-snowflake text-5xl text-emerald-600"></i>
+                        <div class="bg-gradient-to-br from-emerald-50 to-green-50 w-24 h-24 rounded-3xl flex items-center justify-center mb-8 shadow-xl group-hover:shadow-2xl group-hover:scale-110 transition-all duration-500">
+                            <i class="fas fa-snowflake text-5xl text-emerald-600 group-hover:rotate-180 transition-transform duration-500"></i>
                         </div>
-                        <h3 class="text-2xl font-black text-gray-900 mb-4">Refrigerator & Freezer Repair Service</h3>
+                        <div class="flex items-center gap-2 mb-3">
+                            <h3 class="text-2xl font-black text-gray-900">Refrigerator & Freezer Repair Service</h3>
+                            <span class="bg-emerald-100 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full">Certified</span>
+                        </div>
                         <p class="text-gray-600 leading-relaxed mb-6">
                             Expert refrigerator repair service for all refrigerator brands: not cooling, ice maker issues, water leaks, compressor problems, temperature control failures. Professional appliance repair technicians ready to fix your refrigerator today.
                         </p>
-                        <a href="https://pocketsuite.io/link/om-appliance-services-inc" target="_blank" onclick="trackEvent('book_now_clicked', {source: 'refrigerator_service'})" class="btn-animated text-white bg-gradient-to-r from-emerald-600 to-green-500 px-6 py-3 rounded-full font-bold hover:shadow-2xl transition-all flex items-center group inline-flex">
+                        <div class="flex items-center gap-4 mb-6 text-sm text-gray-500">
+                            <span class="flex items-center gap-1"><i class="fas fa-check-circle text-emerald-500"></i> Same-Day</span>
+                            <span class="flex items-center gap-1"><i class="fas fa-shield-alt text-blue-500"></i> Warranty</span>
+                            <span class="flex items-center gap-1"><i class="fas fa-tools text-amber-500"></i> Expert Tech</span>
+                        </div>
+                        <a href="https://pocketsuite.io/link/om-appliance-services-inc" target="_blank" onclick="trackEvent('book_now_clicked', {source: 'refrigerator_service'})" class="btn-animated text-white bg-gradient-to-r from-emerald-600 to-green-500 px-6 py-3 rounded-full font-bold hover:shadow-2xl transition-all flex items-center group-hover:scale-105 inline-flex w-full justify-center">
                             Book Now <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
                         </a>
                     </div>
                 </div>
 
                 <!-- Service 2 - Washers & Dryers -->
-                <div class="service-card bg-white rounded-3xl p-10 shadow-lg border-2 border-gray-100 hover:border-blue-400 transition-all duration-300 relative overflow-hidden" data-service-bg="https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80">
-                    <div class="absolute inset-0 bg-cover bg-center opacity-5 hover:opacity-10 transition-opacity duration-500" style="background-image: url('https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); filter: blur(40px);"></div>
+                <div class="service-card bg-white rounded-3xl p-10 shadow-xl border-2 border-gray-100 hover:border-blue-400 hover:shadow-2xl transition-all duration-500 relative overflow-hidden group">
+                    <div class="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-transparent to-cyan-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-blue-100/20 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     <div class="relative z-10">
-                        <div class="bg-gradient-to-br from-blue-50 to-cyan-50 w-24 h-24 rounded-3xl flex items-center justify-center mb-8 shadow-lg">
-                            <i class="fas fa-fan text-5xl text-blue-600"></i>
+                        <div class="bg-gradient-to-br from-blue-50 to-cyan-50 w-24 h-24 rounded-3xl flex items-center justify-center mb-8 shadow-xl group-hover:shadow-2xl group-hover:scale-110 transition-all duration-500">
+                            <i class="fas fa-fan text-5xl text-blue-600 group-hover:rotate-180 transition-transform duration-500"></i>
                         </div>
-                        <h3 class="text-2xl font-black text-gray-900 mb-4">Washer & Dryer Repair Service</h3>
+                        <div class="flex items-center gap-2 mb-3">
+                            <h3 class="text-2xl font-black text-gray-900">Washer & Dryer Repair Service</h3>
+                            <span class="bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full">Certified</span>
+                        </div>
                         <p class="text-gray-600 leading-relaxed mb-6">
                             Complete washer and dryer repair service: not spinning, won't drain, excessive vibration, not drying, heating issues, drum problems. Professional appliance repair for all washer and dryer brands.
                         </p>
-                        <a href="https://pocketsuite.io/link/om-appliance-services-inc" target="_blank" onclick="trackEvent('book_now_clicked', {source: 'washer_service'})" class="btn-animated text-white bg-gradient-to-r from-blue-600 to-cyan-500 px-6 py-3 rounded-full font-bold hover:shadow-2xl transition-all flex items-center group inline-flex">
+                        <div class="flex items-center gap-4 mb-6 text-sm text-gray-500">
+                            <span class="flex items-center gap-1"><i class="fas fa-check-circle text-emerald-500"></i> Same-Day</span>
+                            <span class="flex items-center gap-1"><i class="fas fa-shield-alt text-blue-500"></i> Warranty</span>
+                            <span class="flex items-center gap-1"><i class="fas fa-tools text-amber-500"></i> Expert Tech</span>
+                        </div>
+                        <a href="https://pocketsuite.io/link/om-appliance-services-inc" target="_blank" onclick="trackEvent('book_now_clicked', {source: 'washer_service'})" class="btn-animated text-white bg-gradient-to-r from-blue-600 to-cyan-500 px-6 py-3 rounded-full font-bold hover:shadow-2xl transition-all flex items-center group-hover:scale-105 inline-flex w-full justify-center">
                             Book Now <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
                         </a>
                     </div>
                 </div>
 
                 <!-- Service 3 - Dishwashers -->
-                <div class="service-card bg-white rounded-3xl p-10 shadow-lg border-2 border-gray-100 hover:border-orange-400 transition-all duration-300 relative overflow-hidden" data-service-bg="https://images.unsplash.com/photo-1599706908931-cf85f1b14a5c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80">
-                    <div class="absolute inset-0 bg-cover bg-center opacity-5 hover:opacity-10 transition-opacity duration-500" style="background-image: url('https://images.unsplash.com/photo-1599706908931-cf85f1b14a5c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); filter: blur(40px);"></div>
+                <div class="service-card bg-white rounded-3xl p-10 shadow-xl border-2 border-gray-100 hover:border-orange-400 hover:shadow-2xl transition-all duration-500 relative overflow-hidden group">
+                    <div class="absolute inset-0 bg-gradient-to-br from-orange-50/50 via-transparent to-red-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-orange-100/20 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     <div class="relative z-10">
-                        <div class="bg-gradient-to-br from-orange-50 to-red-50 w-24 h-24 rounded-3xl flex items-center justify-center mb-8 shadow-lg">
-                            <i class="fas fa-soap text-5xl text-orange-600"></i>
+                        <div class="bg-gradient-to-br from-orange-50 to-red-50 w-24 h-24 rounded-3xl flex items-center justify-center mb-8 shadow-xl group-hover:shadow-2xl group-hover:scale-110 transition-all duration-500">
+                            <i class="fas fa-soap text-5xl text-orange-600 group-hover:rotate-180 transition-transform duration-500"></i>
                         </div>
-                        <h3 class="text-2xl font-black text-gray-900 mb-4">Dishwasher Repair Service</h3>
+                        <div class="flex items-center gap-2 mb-3">
+                            <h3 class="text-2xl font-black text-gray-900">Dishwasher Repair Service</h3>
+                            <span class="bg-orange-100 text-orange-700 text-xs font-bold px-3 py-1 rounded-full">Certified</span>
+                        </div>
                         <p class="text-gray-600 leading-relaxed mb-6">
                             Professional dishwasher repair service: won't drain, not cleaning dishes, water leaks, door latch problems, cycle issues. Expert appliance repair technicians fix all dishwasher problems.
                         </p>
-                        <a href="https://pocketsuite.io/link/om-appliance-services-inc" target="_blank" onclick="trackEvent('book_now_clicked', {source: 'dishwasher_service'})" class="btn-animated text-white bg-gradient-to-r from-orange-600 to-red-500 px-6 py-3 rounded-full font-bold hover:shadow-2xl transition-all flex items-center group inline-flex">
+                        <div class="flex items-center gap-4 mb-6 text-sm text-gray-500">
+                            <span class="flex items-center gap-1"><i class="fas fa-check-circle text-emerald-500"></i> Same-Day</span>
+                            <span class="flex items-center gap-1"><i class="fas fa-shield-alt text-blue-500"></i> Warranty</span>
+                            <span class="flex items-center gap-1"><i class="fas fa-tools text-amber-500"></i> Expert Tech</span>
+                        </div>
+                        <a href="https://pocketsuite.io/link/om-appliance-services-inc" target="_blank" onclick="trackEvent('book_now_clicked', {source: 'dishwasher_service'})" class="btn-animated text-white bg-gradient-to-r from-orange-600 to-red-500 px-6 py-3 rounded-full font-bold hover:shadow-2xl transition-all flex items-center group-hover:scale-105 inline-flex w-full justify-center">
                             Book Now <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
                         </a>
                     </div>
                 </div>
 
                 <!-- Service 4 - Ovens & Stoves -->
-                <div class="service-card bg-white rounded-3xl p-10 shadow-lg border-2 border-gray-100 hover:border-red-400 transition-all duration-300 relative overflow-hidden" data-service-bg="https://images.unsplash.com/photo-1556910103-1c02745aae4d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80">
-                    <div class="absolute inset-0 bg-cover bg-center opacity-5 hover:opacity-10 transition-opacity duration-500" style="background-image: url('https://images.unsplash.com/photo-1556910103-1c02745aae4d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); filter: blur(40px);"></div>
+                <div class="service-card bg-white rounded-3xl p-10 shadow-xl border-2 border-gray-100 hover:border-red-400 hover:shadow-2xl transition-all duration-500 relative overflow-hidden group">
+                    <div class="absolute inset-0 bg-gradient-to-br from-red-50/50 via-transparent to-pink-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-red-100/20 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     <div class="relative z-10">
-                        <div class="bg-gradient-to-br from-red-50 to-pink-50 w-24 h-24 rounded-3xl flex items-center justify-center mb-8 shadow-lg">
-                            <i class="fas fa-fire-burner text-5xl text-red-600"></i>
+                        <div class="bg-gradient-to-br from-red-50 to-pink-50 w-24 h-24 rounded-3xl flex items-center justify-center mb-8 shadow-xl group-hover:shadow-2xl group-hover:scale-110 transition-all duration-500">
+                            <i class="fas fa-fire-burner text-5xl text-red-600 group-hover:rotate-180 transition-transform duration-500"></i>
                         </div>
-                        <h3 class="text-2xl font-black text-gray-900 mb-4">Stove, Oven & Cooktop Repair Service</h3>
+                        <div class="flex items-center gap-2 mb-3">
+                            <h3 class="text-2xl font-black text-gray-900">Stove, Oven & Cooktop Repair Service</h3>
+                            <span class="bg-red-100 text-red-700 text-xs font-bold px-3 py-1 rounded-full">Certified</span>
+                        </div>
                         <p class="text-gray-600 leading-relaxed mb-6">
                             Professional stove, oven, and cooktop repair service: igniter problems, won't heat, burner issues, temperature control, self-cleaning failures. Expert appliance repair for gas and electric ranges.
                         </p>
-                        <a href="https://pocketsuite.io/link/om-appliance-services-inc" target="_blank" onclick="trackEvent('book_now_clicked', {source: 'stove_service'})" class="btn-animated text-white bg-gradient-to-r from-red-600 to-pink-500 px-6 py-3 rounded-full font-bold hover:shadow-2xl transition-all flex items-center group inline-flex">
+                        <div class="flex items-center gap-4 mb-6 text-sm text-gray-500">
+                            <span class="flex items-center gap-1"><i class="fas fa-check-circle text-emerald-500"></i> Same-Day</span>
+                            <span class="flex items-center gap-1"><i class="fas fa-shield-alt text-blue-500"></i> Warranty</span>
+                            <span class="flex items-center gap-1"><i class="fas fa-tools text-amber-500"></i> Expert Tech</span>
+                        </div>
+                        <a href="https://pocketsuite.io/link/om-appliance-services-inc" target="_blank" onclick="trackEvent('book_now_clicked', {source: 'stove_service'})" class="btn-animated text-white bg-gradient-to-r from-red-600 to-pink-500 px-6 py-3 rounded-full font-bold hover:shadow-2xl transition-all flex items-center group-hover:scale-105 inline-flex w-full justify-center">
                             Book Now <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
                         </a>
                     </div>
                 </div>
 
                 <!-- Service 5 - Range Hood -->
-                <div class="service-card bg-white rounded-3xl p-10 shadow-lg border-2 border-gray-100 hover:border-purple-400 transition-all duration-300 relative overflow-hidden" data-service-bg="https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80">
-                    <div class="absolute inset-0 bg-cover bg-center opacity-5 hover:opacity-10 transition-opacity duration-500" style="background-image: url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); filter: blur(40px);"></div>
+                <div class="service-card bg-white rounded-3xl p-10 shadow-xl border-2 border-gray-100 hover:border-purple-400 hover:shadow-2xl transition-all duration-500 relative overflow-hidden group">
+                    <div class="absolute inset-0 bg-gradient-to-br from-purple-50/50 via-transparent to-indigo-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-purple-100/20 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     <div class="relative z-10">
-                        <div class="bg-gradient-to-br from-purple-50 to-indigo-50 w-24 h-24 rounded-3xl flex items-center justify-center mb-8 shadow-lg">
-                            <i class="fas fa-wind text-5xl text-purple-600"></i>
+                        <div class="bg-gradient-to-br from-purple-50 to-indigo-50 w-24 h-24 rounded-3xl flex items-center justify-center mb-8 shadow-xl group-hover:shadow-2xl group-hover:scale-110 transition-all duration-500">
+                            <i class="fas fa-wind text-5xl text-purple-600 group-hover:rotate-180 transition-transform duration-500"></i>
                         </div>
-                        <h3 class="text-2xl font-black text-gray-900 mb-4">Range Hood Repair Service</h3>
+                        <div class="flex items-center gap-2 mb-3">
+                            <h3 class="text-2xl font-black text-gray-900">Range Hood Repair Service</h3>
+                            <span class="bg-purple-100 text-purple-700 text-xs font-bold px-3 py-1 rounded-full">Certified</span>
+                        </div>
                         <p class="text-gray-600 leading-relaxed mb-6">
                             Professional range hood repair service: not working, loud noise, filter issues, control panel problems, lighting failures. Expert appliance repair technicians fix all range hood problems.
                         </p>
-                        <a href="https://pocketsuite.io/link/om-appliance-services-inc" target="_blank" onclick="trackEvent('book_now_clicked', {source: 'hood_service'})" class="btn-animated text-white bg-gradient-to-r from-purple-600 to-indigo-500 px-6 py-3 rounded-full font-bold hover:shadow-2xl transition-all flex items-center group inline-flex">
+                        <div class="flex items-center gap-4 mb-6 text-sm text-gray-500">
+                            <span class="flex items-center gap-1"><i class="fas fa-check-circle text-emerald-500"></i> Same-Day</span>
+                            <span class="flex items-center gap-1"><i class="fas fa-shield-alt text-blue-500"></i> Warranty</span>
+                            <span class="flex items-center gap-1"><i class="fas fa-tools text-amber-500"></i> Expert Tech</span>
+                        </div>
+                        <a href="https://pocketsuite.io/link/om-appliance-services-inc" target="_blank" onclick="trackEvent('book_now_clicked', {source: 'hood_service'})" class="btn-animated text-white bg-gradient-to-r from-purple-600 to-indigo-500 px-6 py-3 rounded-full font-bold hover:shadow-2xl transition-all flex items-center group-hover:scale-105 inline-flex w-full justify-center">
                             Book Now <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
                         </a>
                     </div>
                 </div>
 
                 <!-- Service 6 - Installation -->
-                <div class="service-card bg-white rounded-3xl p-10 shadow-lg border-2 border-gray-100 hover:border-amber-400 transition-all duration-300 relative overflow-hidden" data-service-bg="https://images.unsplash.com/photo-1556912167-f556f1f39f2a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80">
-                    <div class="absolute inset-0 bg-cover bg-center opacity-5 hover:opacity-10 transition-opacity duration-500" style="background-image: url('https://images.unsplash.com/photo-1556912167-f556f1f39f2a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); filter: blur(40px);"></div>
+                <div class="service-card bg-white rounded-3xl p-10 shadow-xl border-2 border-gray-100 hover:border-amber-400 hover:shadow-2xl transition-all duration-500 relative overflow-hidden group">
+                    <div class="absolute inset-0 bg-gradient-to-br from-amber-50/50 via-transparent to-yellow-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-amber-100/20 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     <div class="relative z-10">
-                        <div class="bg-gradient-to-br from-amber-50 to-yellow-50 w-24 h-24 rounded-3xl flex items-center justify-center mb-8 shadow-lg">
-                            <i class="fas fa-screwdriver-wrench text-5xl text-amber-600"></i>
+                        <div class="bg-gradient-to-br from-amber-50 to-yellow-50 w-24 h-24 rounded-3xl flex items-center justify-center mb-8 shadow-xl group-hover:shadow-2xl group-hover:scale-110 transition-all duration-500">
+                            <i class="fas fa-screwdriver-wrench text-5xl text-amber-600 group-hover:rotate-180 transition-transform duration-500"></i>
                         </div>
-                        <h3 class="text-2xl font-black text-gray-900 mb-4">Appliance Installation Service</h3>
+                        <div class="flex items-center gap-2 mb-3">
+                            <h3 class="text-2xl font-black text-gray-900">Appliance Installation Service</h3>
+                            <span class="bg-amber-100 text-amber-700 text-xs font-bold px-3 py-1 rounded-full">Certified</span>
+                        </div>
                         <p class="text-gray-600 leading-relaxed mb-6">
                             Professional appliance installation service: proper hookup, safety testing, code compliance, warranty protection for all appliances. Expert appliance repair technicians handle all installation needs.
                         </p>
-                        <a href="https://pocketsuite.io/link/om-appliance-services-inc" target="_blank" onclick="trackEvent('book_now_clicked', {source: 'installation_service'})" class="btn-animated text-white bg-gradient-to-r from-amber-600 to-yellow-500 px-6 py-3 rounded-full font-bold hover:shadow-2xl transition-all flex items-center group inline-flex">
+                        <div class="flex items-center gap-4 mb-6 text-sm text-gray-500">
+                            <span class="flex items-center gap-1"><i class="fas fa-check-circle text-emerald-500"></i> Same-Day</span>
+                            <span class="flex items-center gap-1"><i class="fas fa-shield-alt text-blue-500"></i> Warranty</span>
+                            <span class="flex items-center gap-1"><i class="fas fa-tools text-amber-500"></i> Expert Tech</span>
+                        </div>
+                        <a href="https://pocketsuite.io/link/om-appliance-services-inc" target="_blank" onclick="trackEvent('book_now_clicked', {source: 'installation_service'})" class="btn-animated text-white bg-gradient-to-r from-amber-600 to-yellow-500 px-6 py-3 rounded-full font-bold hover:shadow-2xl transition-all flex items-center group-hover:scale-105 inline-flex w-full justify-center">
                             Book Now <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
                         </a>
                     </div>
@@ -2994,159 +3023,41 @@
                 header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.05)';
             }
         });
-        // Service Background Images - Optimized for Scroll and Hover
-        const serviceCards = document.querySelectorAll('.service-card[data-service-bg]');
-        const serviceBgOverlay = document.querySelector('.service-bg-overlay');
+        // Service Cards - Clean, Professional & Smooth Interactions
+        const serviceCards = document.querySelectorAll('.service-card');
         
-        if (serviceCards.length > 0 && serviceBgOverlay) {
-            // Check if user prefers reduced motion
-            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-            const isMobile = window.innerWidth <= 768;
+        if (serviceCards.length > 0) {
+            // Add smooth scroll reveal animation
+            const serviceObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
             
-            // Disable on mobile or if user prefers reduced motion
-            if (isMobile || prefersReducedMotion) {
-                serviceBgOverlay.style.display = 'none';
-            } else {
-                let bgTimeout;
-                let currentBgUrl = null;
-                let isHovering = false;
-                let scrollUpdatePending = false;
+            serviceCards.forEach((card, index) => {
+                // Initial state for animation
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = `opacity 0.6s ease-out ${index * 0.1}s, transform 0.6s ease-out ${index * 0.1}s`;
                 
-                // Throttle function for scroll events
-                function throttle(func, wait) {
-                    let timeout;
-                    return function executedFunction(...args) {
-                        const later = () => {
-                            clearTimeout(timeout);
-                            func(...args);
-                        };
-                        clearTimeout(timeout);
-                        timeout = setTimeout(later, wait);
-                    };
-                }
+                // Observe for scroll reveal
+                serviceObserver.observe(card);
                 
-                // Debounce function for hover events
-                function debounce(func, wait) {
-                    let timeout;
-                    return function executedFunction(...args) {
-                        const later = () => {
-                            clearTimeout(timeout);
-                            func(...args);
-                        };
-                        clearTimeout(timeout);
-                        timeout = setTimeout(later, wait);
-                    };
-                }
-                
-                const updateServiceBackground = (bgUrl, source = 'scroll') => {
-                    // Don't update if hovering (hover takes priority)
-                    if (source === 'scroll' && isHovering) {
-                        return;
-                    }
-                    
-                    // Only update if URL changed
-                    if (bgUrl === currentBgUrl) {
-                        return;
-                    }
-                    
-                    currentBgUrl = bgUrl;
-                    
-                    if (bgUrl) {
-                        // Preload image for smoother transition
-                        const img = new Image();
-                        img.onload = () => {
-                            serviceBgOverlay.style.backgroundImage = `url('${bgUrl}')`;
-                            serviceBgOverlay.classList.add('active');
-                        };
-                        img.src = bgUrl;
-                    } else {
-                        serviceBgOverlay.classList.remove('active');
-                        currentBgUrl = null;
-                    }
-                };
-                
-                // Hover events with debouncing
-                serviceCards.forEach(card => {
-                    const bgUrl = card.getAttribute('data-service-bg');
-                    
-                    card.addEventListener('mouseenter', () => {
-                        isHovering = true;
-                        clearTimeout(bgTimeout);
-                        updateServiceBackground(bgUrl, 'hover');
-                    });
-                    
-                    card.addEventListener('mouseleave', () => {
-                        isHovering = false;
-                        // Clear timeout and reset after a delay
-                        clearTimeout(bgTimeout);
-                        bgTimeout = setTimeout(() => {
-                            // Only clear if not hovering another card
-                            if (!isHovering) {
-                                updateServiceBackground(null, 'hover');
-                            }
-                        }, 300);
-                    });
+                // Enhanced hover effect with trust indicators
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-8px) scale(1.02)';
                 });
                 
-                // Intersection Observer for scroll-based backgrounds (optimized)
-                let activeCard = null;
-                const servicesObserver = new IntersectionObserver((entries) => {
-                    // Find the most visible card
-                    let mostVisible = null;
-                    let maxRatio = 0;
-                    
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting && entry.intersectionRatio > maxRatio) {
-                            maxRatio = entry.intersectionRatio;
-                            mostVisible = entry.target;
-                        }
-                    });
-                    
-                    // Only update if we have a visible card and it's different
-                    if (mostVisible && mostVisible !== activeCard && maxRatio > 0.25) {
-                        activeCard = mostVisible;
-                        const bgUrl = mostVisible.getAttribute('data-service-bg');
-                        if (!isHovering) {
-                            updateServiceBackground(bgUrl, 'scroll');
-                        }
-                    } else if (!mostVisible && activeCard) {
-                        // No card is visible, but don't clear immediately
-                        activeCard = null;
-                    }
-                }, {
-                    threshold: [0.1, 0.25, 0.5, 0.75],
-                    rootMargin: '-15% 0px -15% 0px'
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
                 });
-                
-                // Observe all service cards
-                serviceCards.forEach(card => {
-                    servicesObserver.observe(card);
-                });
-                
-                // Cleanup on scroll end for better performance
-                let scrollTimeout;
-                const handleScrollEnd = throttle(() => {
-                    clearTimeout(scrollTimeout);
-                    scrollTimeout = setTimeout(() => {
-                        // Optional: can add cleanup logic here
-                    }, 150);
-                }, 100);
-                
-                window.addEventListener('scroll', handleScrollEnd, { passive: true });
-                
-                // Handle window resize
-                let resizeTimeout;
-                window.addEventListener('resize', () => {
-                    clearTimeout(resizeTimeout);
-                    resizeTimeout = setTimeout(() => {
-                        if (window.innerWidth <= 768) {
-                            serviceBgOverlay.style.display = 'none';
-                        } else {
-                            serviceBgOverlay.style.display = '';
-                        }
-                    }, 250);
-                }, { passive: true });
-            }
+            });
         }
         
         // Scroll reveal animation
